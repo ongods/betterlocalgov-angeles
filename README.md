@@ -22,14 +22,27 @@ A modern, multilingual, and accessible website template designed specifically fo
 
 ### Installation
 
-1. **Clone the repository**
+1. **Fork the repository**
+   - Visit https://github.com/iyanski/betterlocalgov
+   - Click the "Fork" button in the top right
+   - This creates your own copy of the repository
+
+2. **Clone your forked repository**
 
    ```bash
-   git clone https://github.com/iyanski/betterlocalgov.git
+   git clone https://github.com/YOUR-USERNAME/betterlocalgov.git
    cd betterlocalgov
    ```
 
-2. **Install dependencies**
+   Replace `YOUR-USERNAME` with your GitHub username.
+
+3. **Add upstream remote** (to get updates from the original repo)
+
+   ```bash
+   git remote add upstream https://github.com/iyanski/betterlocalgov.git
+   ```
+
+4. **Install dependencies**
 
    ```bash
    npm install
@@ -37,7 +50,7 @@ A modern, multilingual, and accessible website template designed specifically fo
    yarn install
    ```
 
-3. **Run the setup script**
+5. **Run the setup script**
 
    ```bash
    npm run setup
@@ -45,7 +58,7 @@ A modern, multilingual, and accessible website template designed specifically fo
 
    This will guide you through configuring your government's information.
 
-4. **Start development server**
+6. **Start development server**
 
    ```bash
    npm run dev
@@ -53,7 +66,7 @@ A modern, multilingual, and accessible website template designed specifically fo
    yarn dev
    ```
 
-5. **Open your browser**
+7. **Open your browser**
    Navigate to `http://localhost:5173`
 
 ## 📚 Documentation
@@ -63,6 +76,7 @@ A modern, multilingual, and accessible website template designed specifically fo
 - **[CONTENT-MANAGEMENT.md](CONTENT-MANAGEMENT.md)** - Guide for non-technical users to edit and manage website content
 - **[DEPLOYMENT-GUIDE.md](DEPLOYMENT-GUIDE.md)** - Deployment instructions for Vercel and other platforms
 - **[STARTER-KIT-SUMMARY.md](STARTER-KIT-SUMMARY.md)** - Audit results and implementation summary
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and release notes
 
 ## 🎯 Perfect For
 
@@ -74,13 +88,18 @@ A modern, multilingual, and accessible website template designed specifically fo
 
 ## ⚡ Quick Setup (3-5 hours to live website)
 
-1. **Clone & Install** (5 minutes)
+1. **Fork & Clone** (5 minutes)
+   - Fork the repository on GitHub (click "Fork" at https://github.com/iyanski/betterlocalgov)
+   - Clone your fork:
 
    ```bash
-   git clone https://github.com/your-org/local-government-starter-kit.git
-   cd local-government-starter-kit
+   git clone https://github.com/YOUR-USERNAME/betterlocalgov.git
+   cd betterlocalgov
+   git remote add upstream https://github.com/iyanski/betterlocalgov.git
    npm install
    ```
+
+   Replace `YOUR-USERNAME` with your GitHub username.
 
 2. **Configure Your Government** (15 minutes)
 
@@ -90,8 +109,8 @@ A modern, multilingual, and accessible website template designed specifically fo
    ```
 
 3. **Customize Content** (2-4 hours)
-   - Edit service information in `content/`
-   - Add your government's services and programs
+   - Edit service information in `content/services/`
+   - Add government department info in `content/government/`
    - Update contact information and branding
 
 4. **Deploy to Production** (15 minutes)
@@ -139,21 +158,27 @@ A modern, multilingual, and accessible website template designed specifically fo
 ### Project Structure
 
 ```
+content/
+├── government/         # Government section markdown & YAML
+│   └── departments/    # Department pages (executive, legislative, etc.)
+└── services/           # Services section markdown & YAML
+
 src/
-├── components/          # Reusable UI components
+├── components/         # Reusable UI components
 │   ├── home/           # Home page components
 │   ├── layout/         # Layout components (Navbar, Footer)
-│   ├── sections/       # Page sections
 │   └── ui/             # Basic UI components
-├── data/               # Content and configuration
-│   ├── content/        # Markdown content files
-│   └── *.yaml          # Configuration files
-├── hooks/              # Custom React hooks
+├── data/               # YAML configuration (services.yaml, government.yaml)
 ├── i18n/               # Internationalization
-├── lib/                # Utility functions
-├── pages/              # Page components
+├── lib/                # Utility functions (markdownLoader, yamlLoader)
+├── pages/              # Page components (Home, Services, Government, Document)
 └── types/              # TypeScript type definitions
 ```
+
+## 👥 Contributors
+
+- **[iyanski](https://github.com/iyanski)** — Project creator and maintainer
+- **[Nicu Listana](https://github.com/niculistana)** — Contributor
 
 ## 🤝 Contributing
 
@@ -180,8 +205,8 @@ We welcome contributions from everyone! Whether you're a developer, government o
 #### How to Contribute (No Git Required)
 
 1. **Find content to edit**:
-   - Go to `content/services/` in the repository
-   - Choose a category (health, education, business, etc.)
+   - Go to `content/services/` for service pages or `content/government/` for department pages
+   - Choose a category (health, education, business, departments, etc.)
    - Click on any `.md` file to edit
 
 2. **Make your changes**:
@@ -206,19 +231,43 @@ We welcome contributions from everyone! Whether you're a developer, government o
 
 #### Content Contributors (Basic Technical)
 
-1. **Fork the repository**
-2. **Create a content branch**: `git checkout -b content/update-health-services`
-3. **Edit content files** in `content/`
-4. **Test your changes**: `npm run dev`
-5. **Submit a pull request**
+1. **Fork the repository** on GitHub (click "Fork" at https://github.com/iyanski/betterlocalgov)
+2. **Clone your fork**: `git clone https://github.com/YOUR-USERNAME/betterlocalgov.git`
+3. **Add upstream remote**: `git remote add upstream https://github.com/iyanski/betterlocalgov.git`
+4. **Create a content branch**: `git checkout -b content/update-health-services`
+5. **Edit content files** in `content/`
+6. **Test your changes**: `npm run dev`
+7. **Submit a pull request** to the original repository
 
 #### Developers
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/new-component`
-3. **Make your changes**
-4. **Run tests**: `npm run lint && npm run build`
-5. **Submit a pull request**
+1. **Fork the repository** on GitHub (click "Fork" at https://github.com/iyanski/betterlocalgov)
+2. **Clone your fork**: `git clone https://github.com/YOUR-USERNAME/betterlocalgov.git`
+3. **Add upstream remote**: `git remote add upstream https://github.com/iyanski/betterlocalgov.git`
+4. **Create a feature branch**: `git checkout -b feature/new-component`
+5. **Make your changes**
+6. **Run tests**: `npm run lint && npm run build`
+7. **Submit a pull request** to the original repository
+
+#### Keeping Your Fork Updated
+
+To get the latest changes from the original repository:
+
+```bash
+# Fetch the latest changes from upstream
+git fetch upstream
+
+# Switch to your main branch
+git checkout main
+
+# Merge upstream changes into your main branch
+git merge upstream/main
+
+# Push updates to your fork on GitHub
+git push origin main
+```
+
+**Best Practice**: Always sync your fork before creating a new branch for contributions.
 
 ### 📋 Contribution Guidelines
 
@@ -270,7 +319,8 @@ This project is licensed under the Creative Commons Zero (CC0) License - see the
 ## 🙏 Acknowledgments
 
 - Built with [React](https://reactjs.org/)
-- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Styled with [Tailwind CSS v4](https://tailwindcss.com/)
+- UI components by [@bettergov/kapwa](https://github.com/bettergov/kapwa)
 - Icons by [Lucide React](https://lucide.dev/)
 - Content management with [YAML](https://yaml.org/)
 - Internationalization with [i18next](https://www.i18next.com/)

@@ -3,10 +3,10 @@ import * as LucideIcons from 'lucide-react';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
 import { useTranslation } from '../../hooks/useTranslation';
-import { Card, CardContent } from '../ui/Card';
+import { Card, CardContent } from '@bettergov/kapwa/card';
 import { Link } from 'react-router-dom';
 
-import { governmentActivitCategories } from '../../data/yamlLoader';
+import { governmentCategories } from '../../data/yamlLoader';
 
 interface Subcategory {
   name: string;
@@ -21,7 +21,15 @@ interface Category {
   icon: string;
 }
 
-export default function GovernmentActivitySection() {
+interface GovernmentActivitySectionProps {
+  title?: string;
+  description?: string;
+}
+
+export default function GovernmentActivitySection({
+  title,
+  description,
+}: GovernmentActivitySectionProps = {}) {
   const { t } = useTranslation();
 
   const getIcon = (category: string) => {
@@ -31,14 +39,13 @@ export default function GovernmentActivitySection() {
     return IconComponent ? <IconComponent className="h-6 w-6" /> : null;
   };
 
-  const displayedCategories =
-    governmentActivitCategories.categories as Category[];
+  const displayedCategories = governmentCategories.categories as Category[];
 
   return (
-    <Section>
-      <Heading level={2}>{t('governmentActivity.title')}</Heading>
+    <Section id="#government">
+      <Heading level={2}>{title || t('title')}</Heading>
       <Text className="text-gray-600 mb-6">
-        {t('governmentActivity.description')}
+        {description || t('governmentActivity.description')}
       </Text>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -49,7 +56,7 @@ export default function GovernmentActivitySection() {
             className="border-t-4 border-primary-500"
           >
             <Link
-              to={`/services/${category.slug}`}
+              to={`/government/${category.slug}`}
               className="mt-auto text-primary-600 hover:text-primary-700 font-medium transition-colors inline-flex items-center"
             >
               <CardContent className="flex flex-col h-full p-6">
